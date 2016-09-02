@@ -14,3 +14,16 @@ func TestContains(t *testing.T) {
 	a.Equal(Contains([]string{"1", "2"}, "3"), false)
 	a.Equal(Contains([]string{"1", "2"}, 1), false)
 }
+
+func TestIndex(t *testing.T) {
+	a := A{t}
+
+	a.Equal(Index([]int{1, 2}, 1), 0)
+	a.Equal(Index([]int{1, 2}, 2), 1)
+	a.Equal(Index([]int{1, 2}, 3), -1)
+	a.Equal(Index([]int{1, 2}, "1"), -1)
+
+	a.Equal(Index([]string{"1", "2"}, "1"), 0)
+	a.Equal(Index([]string{"1", "2"}, "3"), -1)
+	a.Equal(Index([]string{"1", "2"}, 1), -1)
+}

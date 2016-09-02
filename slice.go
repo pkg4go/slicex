@@ -9,16 +9,29 @@ func Contains(list interface{}, item interface{}) bool {
 		return false
 	}
 
-	items := make([]interface{}, s.Len())
 	for i := 0; i < s.Len(); i++ {
-		items[i] = s.Index(i).Interface()
-	}
-
-	for _, v := range items {
-		if v == item {
+		it := s.Index(i).Interface()
+		if it == item {
 			return true
 		}
 	}
 
 	return false
+}
+
+func Index(list interface{}, item interface{}) int {
+	s := reflect.ValueOf(list)
+
+	if s.Kind() != reflect.Slice && s.Kind() != reflect.Array {
+		return -1
+	}
+
+	for i := 0; i < s.Len(); i++ {
+		it := s.Index(i).Interface()
+		if it == item {
+			return i
+		}
+	}
+
+	return -1
 }
