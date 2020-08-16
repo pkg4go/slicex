@@ -1,4 +1,10 @@
 
+## Deprecated
+
+Using https://github.com/thoas/go-funk
+
+----------------------------------------------------
+
 [![Build status][travis-img]][travis-url]
 [![License][license-img]][license-url]
 [![GoDoc][doc-img]][doc-url]
